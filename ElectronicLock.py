@@ -28,7 +28,11 @@ while True:
 	GPIO.wait_for_edge(buttonPin, GPIO.FALLING)
 	timeStarted = time.time()
 	print("Big Red Button pressed")
-	GPIO.wait_for_edge(buttonPin, GPIO.RISING)
+#	GPIO.wait_for_edge(buttonPin, GPIO.RISING)
+	while GPIO.input(buttonPin) == 0 and time.time() - timeStarted < 0.5:
+		# Wait some small amount of time.
+		# time.sleep(0.01)
+		pass
 	timeEnded = time.time()
 	print("Big Red Button released")
 
@@ -38,6 +42,11 @@ while True:
 		currentState = not currentState
 	else:
 		# Handle wemo toggling
-		os.system("wemo switch eolamp toggle")
+		ret = switch.basicevent.GetBinaryState()
+		# SBS takes a weird dict for some reason. Invert.
+		ret['BinaryState'] = str(int(not int(ret['BinaryState'])))
+		switch.basicevent.SetBinaryState(**ret)
+
 		time.sleep(0.01)
+
 GPIO.cleanup()
