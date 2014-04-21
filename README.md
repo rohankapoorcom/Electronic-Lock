@@ -1,4 +1,4 @@
-# Electronic-Lock
+# ElectronicLock
 Electronic Lock is a Raspberry Pi controlled door locking mechanism and lighting control system.
 
 ## Hardware
