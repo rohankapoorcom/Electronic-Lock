@@ -27,13 +27,13 @@ Electronic Lock is a Raspberry Pi controlled door locking mechanism and lighting
 * Able to restart without user input
 
 ## Requirements/Dependencies
-Raspbian (for the init scripts)
-Python 2
-[ouimeaux](https://github.com/iancmcc/ouimeaux) - for controlling Belkin Wemo Devices
+* Raspbian (for the init scripts)
+* Python 2
+* [ouimeaux](https://github.com/iancmcc/ouimeaux) - for controlling Belkin Wemo Devices
 
 ## Usage
-*This is pre-alpha software. It is highly advised to not install/operate on a production system*
-Software installation instructions will come alongside the hardware setup guide soon
+**This is pre-alpha software. It is highly advised to not install/operate on a production system**
+* Software installation instructions will come alongside the hardware setup guide soon
 
 ## License
 
