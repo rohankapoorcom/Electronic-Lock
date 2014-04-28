@@ -1,5 +1,5 @@
 # ElectronicLock
-Electronic Lock is a Raspberry Pi controlled door locking mechanism and lighting control system.
+A Raspberry Pi controlled door locking mechanism and lighting control system.
 
 ## Hardware
 * Raspberry Pi Model B
@@ -14,7 +14,7 @@ Electronic Lock is a Raspberry Pi controlled door locking mechanism and lighting
 * Belkin Wemo Switch
 
 ## Features
-* A short press of the Big Red Button toggles the Wemo Switch, changing the state of the four desk lamsp connected to it (Implemented)
+* A short press of the Big Red Button toggles the Wemo Switch, changing the state of the four desk lamps connected to it (Implemented)
 * A long press of the Big Red Button (1.5 seconds) triggers the lock_unlock function which toggles the state of the door lock through the servo motor (Implemented)
 * Correct Entry of a user supplied pin on the externally mounted keypad triggers the lock_unlock function
 	* Each user should have the option to have their own pin
