@@ -27,6 +27,7 @@ def lock_unlock(state):
 	return
 
 def toggle_lights():
+	print "Toggling lights"
 	ret = switch.basicevent.GetBinaryState()
 	# SBS takes a weird dict for some reason. Invert.
 	ret['BinaryState'] = str(int(not int(ret['BinaryState'])))
@@ -36,13 +37,13 @@ def button_pushed(channel):
 	global currentState
 	print "Big Red Button pressed"
 	timeStarted = time.time()
-	while GPIO.input(buttonPin) == 0 and time.time() - timeStarted < 0.5:
-		pass
+	while GPIO.input(buttonPin) == 0 and time.time() - timeStarted < 0.3:
+		time.sleep(0.1)
 	timeEnded = time.time()
 	print "Big Red Button released"
 
 	duration = timeEnded - timeStarted
-	if (duration >= 0.5):
+	if (duration >= 0.3):
 		lock_unlock(currentState)
 		currentState = not currentState
 	else:
@@ -54,7 +55,7 @@ def button_pushed(channel):
 			print "Error: unable to start thread"
 
 
-GPIO.add_event_detect(buttonPin, GPIO.FALLING, callback=button_pushed, bouncetime=1000)
+GPIO.add_event_detect(buttonPin, GPIO.FALLING, callback=button_pushed, bouncetime=2000)
 while True:
 	pass
 	
