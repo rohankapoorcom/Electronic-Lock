@@ -48,12 +48,13 @@ def button_pushed(channel):
 	else:
 		# Handle wemo toggling
 		try:
-			thread.start_new_thread(toggle_lights, ())
+			empty_tuple = ()
+			thread.start_new_thread(toggle_lights, empty_tuple)
 		except:
 			print "Error: unable to start thread"
 
 
-GPIO.add_event_detect(buttonPin, GPIO.RISING, callback=button_pushed, bouncetime=1000)
+GPIO.add_event_detect(buttonPin, GPIO.FALLING, callback=button_pushed, bouncetime=1000)
 while True:
 	pass
 	
