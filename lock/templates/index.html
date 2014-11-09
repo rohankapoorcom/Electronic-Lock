@@ -38,7 +38,7 @@
       <div class="jumbotron">
         <h1>Welcome to EO Command Module</h1>
 
-        <form class="form-horizontal" id="control_form" method="post" action="#">
+        <form class="form-horizontal" id="control_form" method="post" action="#" onsubmit="return false;">
           <fieldset>
           <!-- Textarea -->
           <div class="form-group">
@@ -58,7 +58,10 @@
 
           </fieldset>
         </form>
-
+        <label class="col-md-4 control-label" for="lock_checkbox">Locked</label>
+        <div class="col-md-4">
+          <input type="checkbox" id="lock_checkbox" onlick="handleLockClick(this)" onchange="handleLockClick(this)">
+        </div>
       </div>
     </div>
 

@@ -5,7 +5,7 @@ from flask_socketio import SocketIO
 from lock.keypad import keypad
 from lock.Adafruit_MCP230xx import MCP230XX_GPIO
 from lock.Adafruit_CharLCD import Adafruit_CharLCD
-from lock.other import Buzzer, LED
+from lock.other import Buzzer, LED, Lock
 
 app = Flask(__name__)
 fujs = FlaskUtilJs(app)
@@ -17,6 +17,7 @@ modules['mcp'] = MCP230XX_GPIO(0, 0x20, 8)
 modules['lcd'] = Adafruit_CharLCD(pin_rs=0, pin_e=6, pins_db=[1,2,3,4], GPIO=modules['mcp'])
 modules['buzzer'] = Buzzer(7, GPIO=modules['mcp'])
 modules['led'] = LED(5, GPIO=modules['mcp'])
+modules['lock'] = Lock(18)
 
 import lock.views
 import lock.functions
